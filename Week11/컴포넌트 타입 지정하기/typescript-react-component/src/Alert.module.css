@@ -1,0 +1,14 @@
+.alert {
+  padding: 16px 32px;
+  font-size: 16px;
+  border-radius: 16px;
+  margin: 16px;
+}
+
+.alert.info {
+  background-color: #d1ecf1;
+}
+
+.alert.warn {
+  background-color: #fff3cd;
+}
