@@ -1,0 +1,30 @@
+# 회원가입 Request
+POST https://learn.codeit.kr/api/link-service/users
+Content-Type: application/json
+
+{
+  "name": "밥우지",
+  "email": "riceWoozi@example.com",
+  "password": "rice1122"
+}
+
+###
+# 로그인 Request
+POST https://learn.codeit.kr/api/link-service/auth/login
+Content-Type: application/json
+
+{
+  "email": "riceWoozi@example.com",
+  "password": "rice1122"
+}
+
+###
+POST https://learn.codeit.kr/api/link-service/auth/token/refreshl
+Cookie: access-token=...
+Cookie: refresh-token=...
+
+###
+
+DELETE https://learn.codeit.kr/api/link-service/auth/logout
+Cookie: access-token=...
+Cookie: refresh-token=...
