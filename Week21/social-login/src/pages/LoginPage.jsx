@@ -4,7 +4,8 @@ import { useAuth } from "../components/AuthProvider";
 const GOOGLE_CLIENT_ID =
   "266787898619-gra6mtvc723pr8qsh65dkc8eb77leh7d.apps.googleusercontent.com";
 const KAKAO_CLIENT_ID = "4e29302e7f2966d4ed94fd1fc34ad78b";
-const REDIRECT_URI = "http://localhost:3000"; // 배포 시 수정 필요
+const REDIRECT_URI =
+  "https://social-login-glndk2xfp-yeryungchos-projects.vercel.app"; // 배포 시 수정 필요
 
 const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=openid%20profile`;
 const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
