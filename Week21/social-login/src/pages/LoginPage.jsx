@@ -4,9 +4,16 @@ import { useAuth } from "../components/AuthProvider";
 const GOOGLE_CLIENT_ID =
   "266787898619-gra6mtvc723pr8qsh65dkc8eb77leh7d.apps.googleusercontent.com";
 const KAKAO_CLIENT_ID = "4e29302e7f2966d4ed94fd1fc34ad78b";
-const REDIRECT_URI = "https://social-login-yeryungchos-projects.vercel.app/"; // 배포 시 수정 필요
+
+const REDIRECT_URI =
+  process.env.NODE_ENV === "production"
+    ? "https://social-login-yeryungchos-projects.vercel.app/"
+    : "http://localhost:3000";
+
+console.log("리다이렉트 url:", REDIRECT_URI);
 
 const googleAuthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${GOOGLE_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=token&scope=openid%20profile`;
+
 const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
 function handleGoogleLogin() {
@@ -29,6 +36,9 @@ export default function LoginPage() {
 
     // 카카오 액세스 토큰 추출
     const kakaoAuthCode = urlParams.get("code");
+
+    console.log("구글토큰:", googleAccessToken);
+    console.log("카카오토큰:", kakaoAuthCode);
 
     if (googleAccessToken) {
       fetchUserProfile(googleAccessToken, "google");
